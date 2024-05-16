@@ -1,0 +1,34 @@
+const name = document.getElementById('name');
+const username = document.getElementById('username');
+const bio = document.getElementById('bio');
+const btn = document.getElementById('btn');
+const input = document.getElementById('input');
+const image = document.getElementById('image');
+const followers = document.getElementById('followers');
+const following = document.getElementById('following');
+const repos = document.getElementById('repos');
+const website = document.getElementById('website');
+const twitter = document.getElementById('twitter');
+const company = document.getElementById('company');
+const registration = document.getElementById('registration');
+
+input.addEventListener('input', (e) => {
+    console.log(e.target.value);
+});
+
+btn.addEventListener('click', () => {
+    fetch(`https://api.github.com/users/${input.value}`)
+        .then(response => response.json())
+        .then(data => {
+            name.innerHTML = data.name;
+            username.innerHTML = data.login;
+            bio.innerHTML = data.bio;
+            image.src = data.avatar_url;
+            followers.innerHTML = data.followers;
+            following.innerHTML = data.following;
+            repos.innerHTML = data.public_repos;
+            location.innerHTML = data.location;
+        }
+        );
+}
+);
