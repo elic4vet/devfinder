@@ -160,7 +160,8 @@ ul {
     flex-direction: row;
     justify-content: space-between;
     padding: 10px;
-
+    margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 .user_image {
