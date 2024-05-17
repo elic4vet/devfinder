@@ -19,37 +19,41 @@
 <body>
   <div class="nav">
     <h1>devfinder</h1>
-    <div class="light-button">Light</div>
-    <div class="dark-button"> Dark</div>
+    <div class="light-button">Light
+      <img src="./assets/icon-sun.svg" alt="sun icon" class="sunIcon">
+    </div>
+    <div class="dark-button"> Dark
+      <img src="./assets/icon-moon.svg" alt="moon icon" class="moonIcon">
+    </div>
   </div>
 
   <div class="search_form" id="form">
     <img src="./assets/icon-search.svg" alt="search icon" class="search_icon">
-    <input type="text" placeholder="Search GitHub username..." id="input"/>
+    <input type="text" placeholder="Search GitHub username..." id="input" />
     <button class="btn" id="btn">Search</button>
   </div>
 
   <div class="container">
 
     <section class="user_information">
-          <img src="" alt="user image" id="image">
-          <div class="user_name">
-          <h1 id="name">Name</h1>
-          <h3 id="username">@username</h3>
-          <p class="user_bio" id="bio">This profile has no bio</p>
-          </div>
-          <p class="registration" id="registration"> Joined 25 Jan 2011</p>
+      <img src="" alt="user image" id="image">
+      <div class="user_name">
+        <h1 id="name">Name</h1>
+        <h3 id="username">@username</h3>
+        <p class="user_bio" id="bio">This profile has no bio</p>
+      </div>
+      <p class="registration" id="registration"> Joined 25 Jan 2011</p>
     </section>
 
     <section class="user_stats">
       <ul class="stats">
         <li>
-          <p class="repos">Repos</p> 
+          <p class="repos">Repos</p>
           <span id="repos">8</span>
         </li>
         <li>
           <p class="followers">Followers</p>
-          <span id="followers">3938</span>  
+          <span id="followers">3938</span>
         </li>
         <li>
           <p class="following">Following</p>
@@ -67,7 +71,8 @@
           </li>
           <li class="blog" id="website">
             <img src="./assets/icon-website.svg" alt="website icon">
-            https://github.blog </li>
+            https://github.blog
+          </li>
         </ul>
       </div>
 
@@ -75,10 +80,12 @@
         <ul>
           <li class="twitter" id="twitter">
             <img src="./assets/icon-twitter.svg" alt="twitter icon">
-            Not Available </li>
+            Not Available
+          </li>
           <li class="workplace" id="workplace">
             <img src="./assets/icon-company.svg" alt="company icon">
-            @github</li>
+            @github
+          </li>
         </ul>
       </div>
     </section>
@@ -87,4 +94,5 @@
   </div>
   <script src="app.js"></script>
 </body>
+
 </html>
