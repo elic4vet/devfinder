@@ -92,9 +92,9 @@ ul {
 .nav {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
-    gap: 20px;
+    justify-content: space-between;
+    gap: 500px;
 }
 
 .light-button {
