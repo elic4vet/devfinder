@@ -19,26 +19,25 @@
 
     /* Font */
     font-family: "Space Mono", monospace;
-
 }
 
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     min-height: 100vh;
     font-family: "Space Mono", monospace;
     font-style: normal;
     font-size: 15px;
     line-height: 25px;
-    margin-top: 50px;
     background-color: var(--light-blue);
 }
 
 h1 {
     font-family: "Space Mono", monospace;
     font-weight: 700;
-    font-style: bold;
+    /* Corrected */
     font-size: 26px;
     line-height: 38px;
     color: var(--dark-blue);
@@ -47,7 +46,7 @@ h1 {
 h2 {
     font-family: "Space Mono", monospace;
     font-weight: 700;
-    font-style: bold;
+    /* Corrected */
     font-size: 22px;
     line-height: 33px;
     color: var(--dark-blue);
@@ -56,7 +55,6 @@ h2 {
 h3 {
     font-family: "Space Mono", monospace;
     font-weight: 400;
-    font-style: normal;
     font-size: 16px;
     line-height: 24px;
     color: var(--blue-sky);
@@ -65,24 +63,25 @@ h3 {
 h4 {
     font-family: "Space Mono", monospace;
     font-weight: 400;
-    font-style: normal;
     font-size: 13px;
     line-height: 20px;
     color: var(--dark-blue);
 }
 
-input {
-
+#input {
     font-family: "Space Mono", monospace;
     font-weight: 400;
-    font-style: normal;
     font-size: 18px;
     line-height: 25px;
-    color: var(--grey-blue);
     border: none;
     width: 100%;
     height: 100%;
     outline-style: none;
+    background-color: var(--white);
+}
+
+#input[type=submit] {
+    border: 1px solid var(--blue-sky);
 }
 
 ul {
@@ -104,7 +103,6 @@ ul {
 .nav a {
     font-family: "Space Mono", monospace;
     font-weight: 400;
-    font-style: normal;
     font-size: 13px;
     line-height: 20px;
     color: var(--dark-blue);
@@ -124,13 +122,14 @@ ul {
     height: 70px;
     gap: 150px;
     margin-bottom: 20px;
-    box-shadow: 0 16px 30px -10px #4b6a9b69;
+    box-shadow: 0 16px 30px -10px rgba(75, 106, 155, 0.41);
+    /* Corrected */
 }
 
 .btn {
     font-family: "Space Mono", monospace;
     font-weight: 700;
-    font-style: bold;
+    /* Corrected */
     font-size: 16px;
     line-height: 20px;
     color: var(--white);
@@ -148,66 +147,98 @@ ul {
 }
 
 .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 710px;
     height: 419px;
-    box-shadow: 0 16px 30px -10px #4b6a9b69;
+    box-shadow: 0 16px 30px -10px rgba(75, 106, 155, 0.41);
+    /* Corrected */
     border-radius: 15px;
     background-color: var(--white-grey);
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right:20px;
 }
 
 .user_information {
     display: flex;
     flex-direction: row;
+    /* Ensure it's a row */
+    align-items: center;
+    justify-content: center;
     justify-content: space-between;
-    padding: 10px;
-    margin-top: 40px;
-    margin-bottom: 20px;
+    /* Align items to the start */
+    width: 100%;
+    /* Take full width */
+    gap: 20px;
+    /* Add some gap between image and text */
 }
 
 .user_image {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 40px;
+    flex: 0 0 auto;
+    margin-left: 20px;
+    margin-left: 20px;
+    margin-right:10px;
 }
 
 #image {
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    margin-left: 20px;
+    margin-bottom: 10px;
 }
 
 .user_name {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    margin-top: 20px;
+    flex: 1;
+    justify-content: center;
+    /* Allow user_name to grow */
+    /* Adjust as needed */
 }
 
 .registration {
+    color: var(--grey);
     display: flex;
-    flex-direction: column;
-    align-items: right;
-    gap: 20px;
+    justify-content: flex-end;
+    margin-top: -20px;
+}
+
+.user_bio {
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: center;
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--dark-blue);
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 #repos,
 #followers,
 #following {
     font-weight: 700;
-    font-style: bold;
+    /* Corrected */
     font-size: 22px;
 }
 
 .linksco {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 5px;
-    gap: 30px;
-    margin-left: 130px;
-    height: 100px;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: center;
+gap: 80px;
+margin-top: 10px;
+
 }
 
 .user_stats {
@@ -218,6 +249,7 @@ ul {
     justify-content: center;
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-left: 60px;
 }
 
 .row1 {
@@ -242,7 +274,6 @@ ul {
     justify-content: center;
 }
 
-
 .stats {
     display: flex;
     flex-direction: row;
@@ -253,5 +284,5 @@ ul {
     border-radius: 15px;
     width: 420px;
     height: 85px;
-    margin-left: 140px;
+    margin-left: 20px;
 }
