@@ -160,11 +160,11 @@ ul {
 }
 
 .content-container {
-    display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-right:20px;
+    margin-right: 20px;
+    max-width: 600px;
+    margin-top: 20px;
 }
 
 .user_information {
@@ -185,7 +185,8 @@ ul {
     flex: 0 0 auto;
     margin-left: 20px;
     margin-left: 20px;
-    margin-right:10px;
+    margin-right: 10px;
+    display: block;
 }
 
 #image {
@@ -196,22 +197,20 @@ ul {
 }
 
 .user_name {
-    flex: 1;
-    justify-content: center;
-    /* Allow user_name to grow */
-    /* Adjust as needed */
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    flex-grow: 1;
+
 }
 
 .registration {
     color: var(--grey);
-    display: flex;
-    justify-content: flex-end;
-    margin-top: -20px;
+ margin-left: 40px;
 }
 
 .user_bio {
     display: flex;
-    flex-direction:row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     font-family: "Space Mono", monospace;
@@ -219,8 +218,7 @@ ul {
     font-size: 16px;
     line-height: 24px;
     color: var(--dark-blue);
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-left: 150px;
 }
 
 #repos,
@@ -232,12 +230,12 @@ ul {
 }
 
 .linksco {
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: center;
-gap: 80px;
-margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    margin-top: 10px;
 
 }
 
