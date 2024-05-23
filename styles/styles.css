@@ -230,13 +230,13 @@ ul {
     font-size: 22px;
 }
 
-.linksco {
-    display: flex;
-    flex-direction: row;
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
     align-items: center;
     justify-content: center;
-    gap: 80px;
-    margin-top: 10px;
 }
 
 .user_stats {
@@ -327,11 +327,13 @@ ul {
 @media (max-width: 768px) {
 
     body {
-        align-items: center;
-        justify-content: center;
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         margin: 0 auto;
+        margin-right: 20px;
+        margin-left: 20px;
         font-size: 14px;
     }
 
@@ -360,6 +362,7 @@ ul {
 
     .container {
         width: 100%;
+        height: 100%;
         align-items: center;
         justify-content: center;
         margin-left: 20px;
@@ -369,8 +372,19 @@ ul {
 
     .user_bio {
         max-width: 100%;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
     }
-
+    .user_information {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-right: 40px;
+        margin-bottom: 0px;
+    }
+    
     .stats {
         width: 100%;
         display: flex;
@@ -389,6 +403,14 @@ ul {
         justify-content: center;
     }
 
+    .linksco .grid {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 20px;
+        align-items: center;
+        justify-content: center;
+    }
+
 }
 
 @media (max-width: 400px) {
@@ -400,6 +422,8 @@ ul {
         flex-direction: column;
         margin: 0 auto;
         font-size: 12px;
+        margin-right: 20px;
+        margin-left: 20px;
     }
 
     h1 {
@@ -438,8 +462,20 @@ ul {
     }
 
     .user_bio {
-        max-width: 100%;
+        width: 300px;
         font-size: 12px;
+        margin: 0 auto;
+        text-align: center;
+        align-items: center;
+    }
+
+    .user_information {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+        margin-bottom: 20px;
     }
 
     .stats {
