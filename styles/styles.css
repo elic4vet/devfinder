@@ -465,6 +465,7 @@ ul {
 
     .user_bio {
         width: 300px;
+        padding-left: 10px;
     }
 
     .user_information {
@@ -505,5 +506,5 @@ ul {
         margin-bottom: 5px;
         font-size: 14px;
     }
-        
+
 }
