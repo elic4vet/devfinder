@@ -16,71 +16,91 @@ const darkBtn = document.getElementById('dark-button');
 const lightBtn = document.getElementById('light-button');
 
 btn.addEventListener('click', () => {
-    fetch(`https://api.github.com/users/${input.value}`)
-        .then(response => response.json())
+    fetchUserData(input.value)
         .then(data => {
-            console.log(data);
-            profileName.textContent = data.name;
-            username.textContent = `@${data.login}`
-
-            bio.textContent = data.bio;
-            bio.innerHTML = data.bio  ? data.bio : 'This profile has no bio'; 
-            image.src = data.avatar_url;
-            followers.textContent = data.followers;
-            following.textContent = data.following;
-            repos.textContent = data.public_repos;
-
-            const createdAt = new Date(data.created_at);
-            const options = { day: '2-digit', month: 'short', year: 'numeric' };
-            const formattedDate = data.created_at ? createdAt.toLocaleDateString('en-GB', options) : 'N/A';
-            registration.textContent = `Joined ${formattedDate}`;
-
-            websiteInfo.innerHTML = '';
-            twitterInfo.innerHTML = '';
-            workplaceInfo.innerHTML = '';
-            userLocationInfo.innerHTML = '';
-
-            let websiteLink = document.createElement('a');
-            websiteLink.href = data.blog;
-            websiteLink.textContent = 'Website';
-            websiteLink.target = '_blank';
-            let websiteIcon = document.createElement('img');
-            websiteIcon.src = './assets/icon-website.svg';
-            websiteIcon.alt = 'Website icon';
-            websiteInfo.appendChild(websiteIcon);
-            websiteInfo.appendChild(websiteLink);
-
-            if (twitterInfo === null) {
-                twitterInfo.innerHTML = 'N/A';
-            } else {
-
-                let twitterLink = document.createElement('a');
-                twitterLink.href = `https://twitter.com/${data.twitter_username}`;
-                twitterLink.textContent = data.twitter_username;
-                let twitterIcon = document.createElement('img');
-                twitterIcon.src = './assets/icon-twitter.svg';
-                twitterIcon.alt = 'Twitter icon';
-                twitterInfo.appendChild(twitterIcon);
-                twitterInfo.appendChild(twitterLink);
-
-            }
-
-            let workplaceText = document.createTextNode(data.company);
-            let workplaceIcon = document.createElement('img');
-            workplaceIcon.src = './assets/icon-company.svg';
-            workplaceIcon.alt = 'Workplace icon';
-            workplaceInfo.appendChild(workplaceIcon);
-            workplaceInfo.appendChild(workplaceText);
-
-            let locationText = document.createTextNode(data.location);
-            let locationIcon = document.createElement('img');
-            locationIcon.src = './assets/icon-location.svg';
-            locationIcon.alt = 'Location icon';
-            userLocationInfo.appendChild(locationIcon);
-            userLocationInfo.appendChild(locationText);
-
+            displayBasicInfo(data);
+            displayWebsiteInfo(data);
+            displayTwitterInfo(data);
+            displayWorkplaceInfo(data);
+            displayLocationInfo(data);
         });
 });
+
+function fetchUserData(username) {
+    return fetch(`https://api.github.com/users/${username}`)
+        .then(response => response.json());
+}
+
+function displayBasicInfo(data) {
+    profileName.textContent = data.name;
+    username.textContent = `@${data.login}`;
+    bio.textContent = data.bio;
+    bio.innerHTML = data.bio  ? data.bio : 'This profile has no bio'; 
+    image.src = data.avatar_url;
+    followers.textContent = data.followers;
+    following.textContent = data.following;
+    repos.textContent = data.public_repos;
+
+    const createdAt = new Date(data.created_at);
+    const options = { day: '2-digit', month: 'short', year: 'numeric' };
+    const formattedDate = data.created_at ? createdAt.toLocaleDateString('en-GB', options) : 'N/A';
+    registration.textContent = `Joined ${formattedDate}`;
+}
+
+function displayWebsiteInfo(data) {
+    websiteInfo.innerHTML = '';
+    let websiteLink = document.createElement('a');
+    websiteLink.href = data.blog;
+    websiteLink.textContent = 'Website';
+    websiteLink.target = '_blank';
+    let websiteIcon = document.createElement('img');
+    websiteIcon.src = './assets/icon-website.svg';
+    websiteIcon.alt = 'Website icon';
+    websiteInfo.appendChild(websiteIcon);
+    websiteInfo.appendChild(websiteLink);
+}
+
+function displayTwitterInfo(data) {
+    twitterInfo.innerHTML = '';
+    if (data.twitter_username) {
+        let twitterLink = document.createElement('a');
+        twitterLink.href = `https://twitter.com/${data.twitter_username}`;
+        twitterLink.textContent = data.twitter_username;
+        let twitterIcon = document.createElement('img');
+        twitterIcon.src = './assets/icon-twitter.svg';
+        twitterIcon.alt = 'Twitter icon';
+        twitterInfo.appendChild(twitterIcon);
+        twitterInfo.appendChild(twitterLink);
+    }
+    else {
+        let twitterText = document.createTextNode('Not available');
+        let twitterIcon = document.createElement('img');
+        twitterIcon.src = './assets/icon-twitter.svg';
+        twitterIcon.alt = 'Twitter icon';
+        twitterInfo.appendChild(twitterIcon);
+        twitterInfo.appendChild(twitterText);
+    }
+}
+
+function displayWorkplaceInfo(data) {
+    workplaceInfo.innerHTML = '';
+    let workplaceText = document.createTextNode(data.company);
+    let workplaceIcon = document.createElement('img');
+    workplaceIcon.src = './assets/icon-company.svg';
+    workplaceIcon.alt = 'Workplace icon';
+    workplaceInfo.appendChild(workplaceIcon);
+    workplaceInfo.appendChild(workplaceText);
+}
+
+function displayLocationInfo(data) {
+    userLocationInfo.innerHTML = '';
+    let locationText = document.createTextNode(data.location);
+    let locationIcon = document.createElement('img');
+    locationIcon.src = './assets/icon-location.svg';
+    locationIcon.alt = 'Location icon';
+    userLocationInfo.appendChild(locationIcon);
+    userLocationInfo.appendChild(locationText);
+};
 
 darkBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark');
