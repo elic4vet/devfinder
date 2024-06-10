@@ -249,7 +249,7 @@ ul {
     gap: 10px;
     margin-left: 40px;
 }
- 
+
 
 .user_stats {
     display: flex;
@@ -394,6 +394,8 @@ ul {
     }
 
     .user_bio {
+        display: flex;
+        flex-direction: column;
         max-width: 100%;
         align-items: center;
         justify-content: center;
