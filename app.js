@@ -40,7 +40,7 @@ function displayBasicInfo(data) {
         profileName.textContent = '';
         username.textContent = '';
         bio.textContent = 'This profile has no bio';
-        image.src = '';  
+        image.src = '';
         followers.textContent = '';
         following.textContent = '';
         repos.textContent = '';
@@ -57,7 +57,7 @@ function displayBasicInfo(data) {
     profileName.textContent = data.name;
     username.textContent = `@${data.login}`;
     bio.textContent = data.bio;
-    bio.innerHTML = data.bio  ? data.bio : 'This profile has no bio'; 
+    bio.innerHTML = data.bio ? data.bio : 'This profile has no bio';
     image.src = data.avatar_url;
     followers.textContent = data.followers;
     following.textContent = data.following;
