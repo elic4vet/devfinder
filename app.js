@@ -14,6 +14,7 @@ const workplaceInfo = document.getElementById('workplace-info');
 const userLocationInfo = document.getElementById('location-info');
 const darkBtn = document.getElementById('dark-button');
 const lightBtn = document.getElementById('light-button');
+const form = document.getElementById('form');
 
 btn.addEventListener('click', () => {
     fetchUserData(input.value)
@@ -29,9 +30,30 @@ btn.addEventListener('click', () => {
 function fetchUserData(username) {
     return fetch(`https://api.github.com/users/${username}`)
         .then(response => response.json());
+
 }
 
 function displayBasicInfo(data) {
+    if (!data || !data.login) {
+        form.textContent = 'No user found';
+        form.style.color = 'red';
+        profileName.textContent = '';
+        username.textContent = '';
+        bio.textContent = 'This profile has no bio';
+        image.src = '';  
+        followers.textContent = '';
+        following.textContent = '';
+        repos.textContent = '';
+
+        const resetButton = document.createElement('button');
+        resetButton.textContent = 'Reset';
+        resetButton.addEventListener('click', () => {
+            location.reload();
+        });
+        form.appendChild(resetButton);
+        return;
+    }
+
     profileName.textContent = data.name;
     username.textContent = `@${data.login}`;
     bio.textContent = data.bio;
