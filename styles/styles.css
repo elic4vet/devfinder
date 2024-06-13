@@ -138,7 +138,7 @@ ul {
     box-shadow: 0 16px 30px -10px rgba(75, 106, 155, 0.41);
 }
 
-.btn {
+.btn, button {
     font-weight: 700;
     font-size: 16px;
     line-height: 20px;
@@ -149,6 +149,10 @@ ul {
     padding: 10px 20px;
     border-radius: 10px;
     float: right;
+}
+
+button {
+    gap: 150px;
 }
 
 .search_icon {
@@ -396,6 +400,7 @@ ul {
         max-width: 100%;
         margin-left: 20px;
         margin-right: 20px;
+        font-size: 16px;
     }
 
     .user_information {
@@ -446,6 +451,14 @@ ul {
         font-size: 14px;
     }
 
+    #image {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        margin-left: 30px;
+    }
+
 }
 
 @media (max-width: 375px) {
@@ -478,8 +491,16 @@ ul {
         gap: 20px;
     }
 
+    #image {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        margin-left: 30px;
+    }
+
     .container {
-        width: 100%;
+        width: 327px;
         height: 100%;
         align-items: center;
         justify-content: center;
@@ -494,13 +515,23 @@ ul {
         max-width: 100%;
         margin-left: 20px;
         margin-right: 20px;
+        font-size: 15px;
+    }
+
+    .user_name {
+        display: flex;
+        flex-direction: column;
+        margin-left: -10px;
+        margin-top: 20px;
+    }
+
+    .registration {
+        margin-left: 20px;
     }
 
     .user_information {
         display: flex;
         flex-direction: row;
-        align-items: center;
-        justify-content: center;
         margin-right: 40px;
         margin-bottom: 0px;
     }
@@ -539,7 +570,7 @@ ul {
         flex-direction: column;
         margin-left: -160px;
         margin-right: 0px;
-        
+
     }
 
     .grid li {
