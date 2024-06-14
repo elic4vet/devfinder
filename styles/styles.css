@@ -138,7 +138,8 @@ ul {
     box-shadow: 0 16px 30px -10px rgba(75, 106, 155, 0.41);
 }
 
-.btn, button {
+.btn,
+button {
     font-weight: 700;
     font-size: 16px;
     line-height: 20px;
@@ -458,7 +459,6 @@ button {
         margin-bottom: 10px;
         margin-left: 30px;
     }
-
 }
 
 @media (max-width: 375px) {
