@@ -227,6 +227,16 @@ button {
     margin-left: 100px;
 }
 
+.user_information,
+.stats,
+.user_name {
+    margin-bottom: 0px;
+}
+
+.user_information {
+    --margin-right: var(--margin-right-large);
+    flex-direction: row;
+}
 
 #repos,
 #followers,
@@ -291,6 +301,7 @@ button {
     border-radius: 15px;
     width: 420px;
     height: 85px;
+    margin-right: var(--margin-right-extra-large);
 }
 
 .grid img {
