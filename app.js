@@ -44,7 +44,6 @@ function displayBasicInfo(data) {
         followers.textContent = '';
         following.textContent = '';
         repos.textContent = '';
-
         const resetButton = document.createElement('button');
         resetButton.textContent = 'Reset';
         resetButton.addEventListener('click', () => {
