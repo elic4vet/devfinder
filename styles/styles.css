@@ -130,7 +130,7 @@ ul {
 }
 
 .moon-icon  {
- background-color: var(--dark-blue);
+    color: var(--dark-blue); 
 }
 
 .search_form {
