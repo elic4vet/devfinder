@@ -6,7 +6,9 @@
     /* Light Theme */
     --grey-blue: #4B6A9B;
     --dark-blue: #2B3442;
+    --light-blue2: #60abff;
     --grey: #697C9A;
+    --grey-purple:#90a4d4;
     --light-grey: #D7DCEF;
     --white-grey: #FEFEFE;
     --light-blue: #F6F8FF;
@@ -100,6 +102,7 @@ ul {
     display: none;
 }
 
+
 .nav a {
     font-weight: 400;
     font-size: 13px;
@@ -122,6 +125,14 @@ ul {
     letter-spacing: 1px;
 }
 
+.dark-button:hover , .moon-icon {
+    color: var(--dark-blue);
+}
+
+.moon-icon  {
+ background-color: var(--dark-blue);
+}
+
 .search_form {
     display: flex;
     flex-direction: row;
@@ -138,7 +149,7 @@ ul {
     box-shadow: 0 16px 30px -10px rgba(75, 106, 155, 0.41);
 }
 
-.btn,
+.Searchbtn,
 button {
     font-weight: 700;
     font-size: 16px;
@@ -152,11 +163,15 @@ button {
     float: right;
 }
 
+.Searchbtn:hover {
+    background-color: var(--light-blue2);
+}
+
 button {
     gap: 150px;
 }
 
-.search_icon {
+.dark-button .search_icon {
     width: 23.67px;
     height: 24px;
 }
@@ -365,7 +380,13 @@ button {
     color: var(--white-grey);
 }
 
+.dark .dark-button:hover , .moon-icon {
+    color: var(--grey-purple);
+}
 
+.dark .moon-icon {
+color: var(--grey-purple);
+}
 @media (max-width: 768px) {
 
     body {
