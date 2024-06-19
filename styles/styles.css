@@ -8,7 +8,7 @@
     --dark-blue: #2B3442;
     --light-blue2: #60abff;
     --grey: #697C9A;
-    --grey-purple:#90a4d4;
+    --grey-purple: #90a4d4;
     --light-grey: #D7DCEF;
     --white-grey: #FEFEFE;
     --light-blue: #F6F8FF;
@@ -18,6 +18,11 @@
     --white: #FFFFFF;
     --dark-clr: #141D2F;
     --blue-jeans: #1E2A47;
+
+    --margin-horizontal: 20px;
+    --font-size-standard: 14px;
+    --font-size-large: 16px;
+    --gap-standard: 20px;
 
     /* Font */
     font-family: "Space Mono", monospace;
@@ -125,12 +130,13 @@ ul {
     letter-spacing: 1px;
 }
 
-.dark-button:hover , .moon-icon {
+.dark-button:hover,
+.moon-icon {
     color: var(--dark-blue);
 }
 
-.moon-icon  {
-    color: var(--dark-blue); 
+.moon-icon {
+    color: var(--dark-blue);
 }
 
 .search_form {
@@ -147,6 +153,8 @@ ul {
     gap: 150px;
     margin-bottom: 20px;
     box-shadow: 0 16px 30px -10px rgba(75, 106, 155, 0.41);
+    margin: 0 var(--margin-horizontal);
+    font-size: var(--font-size-standard);
 }
 
 .Searchbtn,
@@ -236,10 +244,11 @@ button {
     display: flex;
     flex-direction: column;
     font-weight: 400;
-    font-size: 16px;
     color: var(--dark-blue);
     max-width: 500px;
     margin-left: 100px;
+    margin: 0 var(--margin-horizontal);
+    font-size: var(--font-size-large);
 }
 
 .user_information,
@@ -380,13 +389,15 @@ button {
     color: var(--white-grey);
 }
 
-.dark .dark-button:hover , .moon-icon {
+.dark .dark-button:hover,
+.moon-icon {
     color: var(--grey-purple);
 }
 
 .dark .moon-icon {
-color: var(--grey-purple);
+    color: var(--grey-purple);
 }
+
 @media (max-width: 768px) {
 
     body {
