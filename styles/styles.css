@@ -131,13 +131,14 @@ ul {
     letter-spacing: 1px;
 }
 
-.dark-button:hover,
 .moon-icon {
-    color: var(--dark-blue);
+    background: none;
 }
 
-.moon-icon {
-    color: var(--dark-blue);
+.dark-button:hover,
+.dark-button .moon-icon:hover {
+    filter: grayscale(100%) brightness(0.5);
+    opacity: 0.5;
 }
 
 .search_form {
@@ -219,7 +220,7 @@ button {
     flex: 0 0 auto;
     margin-left: 20px;
     margin-right: 10px;
- 
+
 }
 
 #image {
@@ -251,7 +252,7 @@ button {
     color: var(--dark-blue);
     max-width: 400px;
     margin-left: 50px;
- 
+
     font-size: var(--font-size-large);
 }
 
@@ -399,13 +400,15 @@ button {
     color: var(--white-grey);
 }
 
-.dark .dark-button:hover,
-.moon-icon {
-    color: var(--grey-purple);
+.dark .moon-icon,
+.dark .dark-button {
+background: none;
 }
 
-.dark .moon-icon {
+.dark .dark-button:hover,
+.dark .dark-button .moon-icon:hover {
     color: var(--grey-purple);
+    filter: brightness(1); 
 }
 
 @media (max-width: 768px) {
