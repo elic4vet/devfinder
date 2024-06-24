@@ -402,13 +402,13 @@ button {
 
 .dark .moon-icon,
 .dark .dark-button {
-background: none;
+    background: none;
 }
 
 .dark .dark-button:hover,
 .dark .dark-button .moon-icon:hover {
     color: var(--grey-purple);
-    filter: brightness(1); 
+    filter: brightness(1);
 }
 
 @media (max-width: 768px) {
