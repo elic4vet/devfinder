@@ -364,7 +364,7 @@ button {
 .dark .container,
 .dark .content {
     background-color: var(--blue-jeans);
-    box-shadow: none;
+    box-shadow: 0 4px 8px var(--blue-jeans);
 }
 
 .dark .user_bio {
