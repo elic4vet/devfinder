@@ -13,51 +13,49 @@ const twitterInfo = document.getElementById('twitter-info');
 const workplaceInfo = document.getElementById('workplace-info');
 const userLocationInfo = document.getElementById('location-info');
 const darkBtn = document.getElementById('dark-button');
-const lightBtn = document.getElementById('light-button');
 const form = document.getElementById('form');
+const error = document.getElementById('error');
+const errorMessage = document.createElement('p');
 
 btn.addEventListener('click', () => {
-    fetchUserData(input.value)
-        .then(data => {
-            displayBasicInfo(data);
-            displayWebsiteInfo(data);
-            displayTwitterInfo(data);
-            displayWorkplaceInfo(data);
-            displayLocationInfo(data);
-        });
+    const username = input.value.trim();
+    if (username) {
+        fetchUserData(username)
+            .then(data => {
+                displayBasicInfo(data);
+                displayWebsiteInfo(data);
+                displayTwitterInfo(data);
+                displayWorkplaceInfo(data);
+                displayLocationInfo(data);
+            })
+            .catch(err => {
+                displayError('No user found');
+                console.error('Error fetching user data:', err);
+            });
+    }
 });
 
 function fetchUserData(username) {
     return fetch(`https://api.github.com/users/${username}`)
-        .then(response => response.json());
-
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`User not found: ${response.status}`);
+            }
+            return response.json();
+        });
 }
 
 function displayBasicInfo(data) {
+    error.textContent = '';
+
     if (!data || !data.login) {
-        form.textContent = 'No user found';
-        form.style.color = 'red';
-        form.style.gap = '1rem';
-        profileName.textContent = '';
-        username.textContent = '';
-        bio.textContent = 'This profile has no bio';
-        image.src = '';
-        followers.textContent = '';
-        following.textContent = '';
-        repos.textContent = '';
-        const resetButton = document.createElement('button');
-        resetButton.textContent = 'Reset';
-        resetButton.addEventListener('click', () => {
-            location.reload();
-        });
-        form.appendChild(resetButton);
+        displayError('No user found');
         return;
     }
 
-    profileName.textContent = data.name;
+    profileName.textContent = data.name || 'N/A';
     username.textContent = `@${data.login}`;
-    bio.textContent = data.bio;
-    bio.innerHTML = data.bio ? data.bio : 'This profile has no bio';
+    bio.textContent = data.bio || 'This profile has no bio';
     image.src = data.avatar_url;
     followers.textContent = data.followers;
     following.textContent = data.following;
@@ -71,15 +69,19 @@ function displayBasicInfo(data) {
 
 function displayWebsiteInfo(data) {
     websiteInfo.innerHTML = '';
-    let websiteLink = document.createElement('a');
-    websiteLink.href = data.blog;
-    websiteLink.textContent = 'Website';
-    websiteLink.target = '_blank';
-    let websiteIcon = document.createElement('img');
-    websiteIcon.src = './assets/icon-website.svg';
-    websiteIcon.alt = 'Website icon';
-    websiteInfo.appendChild(websiteIcon);
-    websiteInfo.appendChild(websiteLink);
+    if (data.blog) {
+        let websiteLink = document.createElement('a');
+        websiteLink.href = data.blog;
+        websiteLink.textContent = 'Website';
+        websiteLink.target = '_blank';
+        let websiteIcon = document.createElement('img');
+        websiteIcon.src = './assets/icon-website.svg';
+        websiteIcon.alt = 'Website icon';
+        websiteInfo.appendChild(websiteIcon);
+        websiteInfo.appendChild(websiteLink);
+    } else {
+        websiteInfo.textContent = 'Not available';
+    }
 }
 
 function displayTwitterInfo(data) {
@@ -93,8 +95,7 @@ function displayTwitterInfo(data) {
         twitterIcon.alt = 'Twitter icon';
         twitterInfo.appendChild(twitterIcon);
         twitterInfo.appendChild(twitterLink);
-    }
-    else {
+    } else {
         let twitterText = document.createTextNode('Not available');
         let twitterIcon = document.createElement('img');
         twitterIcon.src = './assets/icon-twitter.svg';
@@ -106,23 +107,40 @@ function displayTwitterInfo(data) {
 
 function displayWorkplaceInfo(data) {
     workplaceInfo.innerHTML = '';
-    let workplaceText = document.createTextNode(data.company);
-    let workplaceIcon = document.createElement('img');
-    workplaceIcon.src = './assets/icon-company.svg';
-    workplaceIcon.alt = 'Workplace icon';
-    workplaceInfo.appendChild(workplaceIcon);
-    workplaceInfo.appendChild(workplaceText);
+    if (data.company) {
+        let workplaceText = document.createTextNode(data.company);
+        let workplaceIcon = document.createElement('img');
+        workplaceIcon.src = './assets/icon-company.svg';
+        workplaceIcon.alt = 'Workplace icon';
+        workplaceInfo.appendChild(workplaceIcon);
+        workplaceInfo.appendChild(workplaceText);
+    } else {
+        workplaceInfo.textContent = 'Not available';
+    }
 }
 
 function displayLocationInfo(data) {
     userLocationInfo.innerHTML = '';
-    let locationText = document.createTextNode(data.location);
-    let locationIcon = document.createElement('img');
-    locationIcon.src = './assets/icon-location.svg';
-    locationIcon.alt = 'Location icon';
-    userLocationInfo.appendChild(locationIcon);
-    userLocationInfo.appendChild(locationText);
-};
+    if (data.location) {
+        let locationText = document.createTextNode(data.location);
+        let locationIcon = document.createElement('img');
+        locationIcon.src = './assets/icon-location.svg';
+        locationIcon.alt = 'Location icon';
+        userLocationInfo.appendChild(locationIcon);
+        userLocationInfo.appendChild(locationText);
+    } else {
+        userLocationInfo.textContent = 'Not available';
+    }
+}
+
+function displayError(message) {
+    errorMessage.textContent = message;
+    errorMessage.style.color = 'red';
+    errorMessage.style.fontWeight = 'bold';
+    errorMessage.style.gap = '10px';
+
+    error.appendChild(errorMessage);
+}
 
 darkBtn.addEventListener('click', () => {
     document.body.classList.toggle('dark');
@@ -137,4 +155,3 @@ darkBtn.addEventListener('click', () => {
         darkBtn.innerHTML = 'Light <img src="./assets/icon-sun.svg" alt="Light Mode icon">';
     }
 });
-
