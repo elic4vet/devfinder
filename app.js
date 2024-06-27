@@ -37,6 +37,7 @@ function displayBasicInfo(data) {
     if (!data || !data.login) {
         form.textContent = 'No user found';
         form.style.color = 'red';
+        form.style.gap = '1rem';
         profileName.textContent = '';
         username.textContent = '';
         bio.textContent = 'This profile has no bio';
