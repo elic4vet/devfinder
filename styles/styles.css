@@ -144,7 +144,7 @@ ul {
 .search_form {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-top: 20px;
     border-radius: 15px;
@@ -152,7 +152,7 @@ ul {
     padding: 10px;
     width: 708.06px;
     height: 70px;
-    gap: 150px;
+    gap: 100px;
     margin-bottom: 20px;
     box-shadow: 0 16px 30px -10px rgba(75, 106, 155, 0.41);
     margin: 0 var(--margin-horizontal);
@@ -256,6 +256,11 @@ button {
     font-size: var(--font-size-large);
 }
 
+.error p {
+    width: 120px; 
+    color: red;
+    font-size: 14px;
+}
 
 .username {
     margin-left: 25px;
@@ -435,9 +440,9 @@ button {
     }
 
     .search_form {
-        width: 100%;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        width: 100%;
         gap: 20px;
     }
 
